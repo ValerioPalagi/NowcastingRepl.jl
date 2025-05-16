@@ -3,7 +3,13 @@ uuid = "7cb8100d-3f76-49f0-b91d-514678cac1f5"
 authors = ["Valerio Palagi", "Isotta Valpreda"]
 version = "1.0.0-DEV"
 
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+DocumenterTools = "35a29f4d-8980-5a13-9543-d66fff28ecb8"
+
 [compat]
+Documenter = "1.11.4"
+DocumenterTools = "0.1.20"
 julia = "1.6.7"
 
 [extras]
