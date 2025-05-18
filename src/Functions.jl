@@ -1,4 +1,4 @@
-transparency = 0.26
+transparency = 0.25
 
 Plt_size_2by2 = [280.2, 309.8, 975.2, 588.8]
 Plt_size_2by1 = [280.2, 309.8, 975.2, 588.8]
