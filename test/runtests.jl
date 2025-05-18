@@ -1,7 +1,7 @@
-#using NowcastingRepl
-#using Test
+using NowcastingRepl
+using Test
 
-#@testset "NowcastingRepl.jl" begin
+@testset "NowcastingRepl.jl" begin
     # Test the run function
    # NowcastingRepl.run()
     
@@ -12,5 +12,5 @@
    # @test filesize("./Output/Figure1.png") > 0
     
     # Check if the output file is a PNG
-   # @test endswith("./Output/Figure1.png", ".png")
-#end
+    @test endswith("./Output/Figure1.png", ".png")
+end
