@@ -2,5 +2,5 @@ using NowcastingRepl
 using Test
 
 @testset "NowcastingRepl.jl" begin
-     @test 1 == 1  # Fake test: always passes
+    @test 3 + 2 == 5
 end
