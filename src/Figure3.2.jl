@@ -15,10 +15,10 @@ X = Matrix(data_ea[start_pos:end, [:CISS, :ESI]])
 
 
 # Run the Bayesian logistic regression
-pi_median, beta_samples = bayesian_logit(Y, X; n_iter=25000, prior_var=10.0, step_size=0.05)
+pi_median, beta_samples = bayesian_logit(Y, X; n_iter=250000, prior_var=10.0, step_size=0.05)
 
-println("Posterior median of pi:")
-println(pi_median)
+#println("Posterior median of pi:")
+#println(pi_median)
 
 # Plot the posterior median of pi as percentages
 # Extract the relevant dates
@@ -44,7 +44,7 @@ tick_indices = 1:60:length(plot_dates)
 xtick_dates = plot_dates[tick_indices]
 xtick_labels = Dates.format.(xtick_dates, dateformat"yyyy")
 
-pi_median, beta_samples = bayesian_logit(Y, X; n_iter=25000, prior_var=10.0, step_size=0.05)
+pi_median, beta_samples = bayesian_logit(Y, X; n_iter=250000, prior_var=10.0, step_size=0.05)
 
 # Recalculate pi_samples from beta_samples
 pi_samples = logistic.(X * beta_samples)
@@ -63,6 +63,7 @@ plt = plot(plot_dates, plot_values,
     title = "Euro Area",
     legend = false,
     lw = 2,
+    size = (800, 600),
     xticks = (xtick_dates, xtick_labels))
 
 # Add correct blue shaded credible interval
@@ -73,9 +74,15 @@ plot!(plot_dates, pi_mid,
     lw = 0,  # no line
     label = "")
 
-    
-display(plt)
+recession_dates = data_ea[!, :Date][data_ea[!, :CEPR_Recession] .== 1]
 
-# Add grey vertical shaded regions for recession periods
+for d in recession_dates
+    vline!([d], color = :black, lw = 1, alpha = 0.2, label = "")
+end
+
+
+mkpath("./Output")
+savefig(plt, "./Output/Figure_3.2.png")
+
 
     

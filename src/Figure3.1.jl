@@ -15,7 +15,7 @@ X = Matrix(data_us[start_pos:end, [:PMI_Manuf, :CISS]])
 
 
 # Run the Bayesian logistic regression
-pi_median, beta_samples = bayesian_logit(Y, X; n_iter=25000, prior_var=10.0, step_size=0.05)
+pi_median, beta_samples = bayesian_logit(Y, X; n_iter=250000, prior_var=10.0, step_size=0.05)
 
 #println("Posterior median of pi:")
 #println(pi_median)
@@ -47,7 +47,7 @@ xtick_labels = Dates.format.(xtick_dates, dateformat"yyyy")
 # Create the main plot
 
 
-pi_median, beta_samples = bayesian_logit(Y, X; n_iter=25000, prior_var=10.0, step_size=0.05)
+pi_median, beta_samples = bayesian_logit(Y, X; n_iter=250000, prior_var=10.0, step_size=0.05)
 
 # Recalculate pi_samples from beta_samples
 pi_samples = logistic.(X * beta_samples)
@@ -67,7 +67,9 @@ plt = plot(plot_dates, plot_values,
     title = "United States",
     legend = false,
     lw = 2,
-    xticks = (xtick_dates, xtick_labels))
+    xticks = (xtick_dates, xtick_labels),
+    size = (800, 600)
+    )
 
 # Add correct blue shaded credible interval
 plot!(plot_dates, pi_mid,
@@ -76,22 +78,13 @@ plot!(plot_dates, pi_mid,
     color = :blue,
     lw = 0,  # no line
     label = "")
-# Add grey vertical shaded regions for recession periods    
 
-# Find all indices where recession occurs
-recession_mask = data_us[start_pos:end, :NBER_Recession] .== 1
-recession_dates = data_us[start_pos:end, :Date]
+recession_dates = data_us[!, :Date][data_us[!, :NBER_Recession] .== 1]
 
-# Find contiguous blocks of recession
-using Base: split
-
-recession_indices = findall(recession_mask)
-recession_groups = split(recession_indices, x -> x != 1 && x != 0 && x != recession_indices[1] && x != recession_indices[findfirst(==(x), recession_indices)-1]+1)
-
-for group in recession_groups
-    start_idx = first(group)
-    end_idx = last(group)
-    vspan!(plt, recession_dates[start_idx], recession_dates[end_idx], color=:gray, alpha=0.3, label="")
+for d in recession_dates
+    vline!([d], color = :black, lw = 1, alpha = 0.2, label = "")
 end
 
-display(plt)
+
+mkpath("./Output")
+savefig(plt, "./Output/Figure_3.1.png")
