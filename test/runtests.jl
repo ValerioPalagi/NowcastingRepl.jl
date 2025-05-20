@@ -8,7 +8,7 @@ using Test
     # Check if the output file exists
    # @test isfile("./Output/Figure1.png") == true
     
-    # Check if the output file is not empty
+    # Check if the output file is not empty 
    # @test filesize("./Output/Figure1.png") > 0
     
     # Check if the output file is a PNG

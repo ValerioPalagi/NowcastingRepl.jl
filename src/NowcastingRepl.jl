@@ -1,6 +1,6 @@
 module NowcastingRepl
 
-using CSV, DataFrames, Plots
+using CSV, DataFrames, Plots, Distributions, StatsFuns, Random, AdvancedMH
 
 function run()
     include("src/Functions.jl")

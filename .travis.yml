@@ -4,6 +4,7 @@ notifications:
   email: false
 julia:
   - 1.11
+  - 1.6
   - nightly
 os:
   - linux
