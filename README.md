@@ -37,6 +37,7 @@ To reproduce the authors' results, follow the steps below:
 - Random
 - LinearAlgebra
 - Statistics
+- PrettyTables
 
 **Folder Organisation:**
   ```bash
@@ -65,7 +66,11 @@ NowcastingRepl.jl/
 
 We propose a simple yet robust framework to nowcast recession risk at a monthly frequency in both the United States and the Euro Area. Our nowcast leverages both macroeconomic and financial conditions, and is available the first business day after the reference month closes. In particular, we argue that financial conditions are not only useful to predict future downturns—as emphasized by the existing literature—but they are also useful to distinguish between expansions and downturns as they unfold. We then connect our recession risk nowcast with growth-at-risk by drawing on the literature on distributional regressions and quantile regressions. Finally, we benchmark our nowcast with the Survey of Professional Forecasters (SPF) and show that, while both have a similar ability to identify downturns, the former is more accurate in correctly identifying periods of expansion.
 
-## Disclaimer:
+
+## Comment:
+
+The results obtained—particularly those concerning the Brier Score—differ slightly from those reported in the original paper. We believe this discrepancy arises from the fact that, in the original MATLAB code, the ⁠ Bayesian_logit ⁠ function is implemented using a slicing algorithm. We were unable to identify a faithful and functional translation of this algorithm in Julia. Consequently, we implemented the function step by step based on the standard formulation of the model and Bayesian estimation. This may have led to the minor deviations observed in the results, especially in the Brier Score values. Nonetheless, the results remain robust and closely aligned with those reported in the replicated study.
+
+
+#### Disclaimer:
 This repository is intended for academic replication and educational purposes only. Please cite the original paper if you use or build upon this work.
-
-
