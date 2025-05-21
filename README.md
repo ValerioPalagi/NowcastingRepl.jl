@@ -38,6 +38,7 @@ To reproduce the authors' results, follow the steps below:
 - LinearAlgebra
 - Statistics
 - PrettyTables
+- CairoMakie
 
 **Folder Organisation:**
   ```bash
