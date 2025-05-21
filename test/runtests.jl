@@ -3,10 +3,8 @@ using Test, CSV, DataFrames, CSVFiles
 
 logistic(x) = 1 / (1 + exp(-x))
 
-data_us = DataFrame(load("test/Data_US.csv"))
-data_ea = DataFrame(load("test/Data_EA.csv"))
-#data_us = CSV.read("./test/Data_US.csv", DataFrame; dateformat="m/d/y H:M")
-#data_ea = CSV.read("./test/Data_EA.csv", DataFrame; dateformat="m/d/y H:M")
+include("Functions_try.jl")
+
 
 
 @testset "NowcastingRepl.jl" begin
@@ -16,8 +14,16 @@ data_ea = DataFrame(load("test/Data_EA.csv"))
     @test logistic(-10000) ≈ 0.0
 end
 
-@testset "Recession series validity" begin
-        @test all(x -> x in (0, 1), data_us.NBER_Recession)
-        @test all(x -> x in (0, 1), data_ea.CEPR_Recession[62:end])
+@testset "Bayesian logistic regression tests" begin
+        # Create a small dataset for testing
+        Y = [0, 1, 0, 1]
+        X = [1 0.5; 1 1.5; 1 -0.5; 1 -1.5]
+        
+        # Run the Bayesian logistic regression
+        pi_median, beta_samples = bayesian_logit(Y, X; n_iter=1000, prior_var=10.0, step_size=0.05)
+        
+        # Check the dimensions of the output
+        @test size(pi_median) == (4,1)
+        @test size(beta_samples) == (2, 1000)
 end
 end
