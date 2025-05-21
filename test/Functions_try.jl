@@ -1,4 +1,8 @@
+# Definition of the logistic function
 logistic(x) = 1 / (1 + exp(-x))
+
+
+# Function to perform Bayesian logistic regression 
 function bayesian_logit(Y::Vector{Int}, X::Matrix; n_iter=10000, prior_var=10.0, step_size=0.1)
     n, p = size(X)
     prior = MvNormal(zeros(p), prior_var * Matrix(I, p, p))

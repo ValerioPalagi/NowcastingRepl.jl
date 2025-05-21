@@ -1,10 +1,13 @@
 module NowcastingRepl
 
-using CSV, DataFrames, Plots, Distributions, StatsFuns, Random, AdvancedMH
+using CSV, DataFrames, Dates, Plots, AdvancedMH, Distributions, StatsFuns, Random, LinearAlgebra, Statistics
 
 function run()
-    include("src/Functions.jl")
-    include("src/Figure1.jl")
+    include("src/Functions_try.jl")
+    include("src/Figure_1.jl")
+    include("src/Figure_3.1.jl")
+    include("src/Figure_3.2.jl")
+    include("src/Figure_6.jl")
    
 end 
 
