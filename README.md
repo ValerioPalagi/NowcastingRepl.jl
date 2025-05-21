@@ -4,7 +4,7 @@
 This project is the replication of the 2024 paper [_Nowcasting Recession Risk_](https://assets.amazon.science/12/ce/ceca29ba49ecae3b6367041fbf11/nowcasting-recession-risk.pdf) by Domenico Giannone and Francesco Furno.  
 The objective is to reproduce the core results originally obtained in MATLAB by the authors, using Julia.
 
-This work was carried out as part of a [Structural Econometrics](https://floswald.github.io/CompEcon/) project by first-year PhD students. The final deliverable is a complete Julia package that reconstructs some results of the original nowcasting pipeline. In particular, this package replicates the results of Chapter 2.3 and Figures 1, 3, and 6.
+This work was carried out as part of a [Structural Econometrics](https://floswald.github.io/CompEcon/) project by first-year PhD students. The final deliverable is a complete Julia package that reconstructs some results of the original nowcasting pipeline. In particular, this package replicates the results of Chapter 2.3 and 2.4 and Figures 1, 3, 6 and Table 4 (Overall results).
 
 _Authors: Valerio Palagi & Isotta Valpreda_
 
@@ -47,13 +47,15 @@ NowcastingRepl.jl/
 │   ├── Figure_1.png/       <- Reproduced figure 1
 │   ├── Figure_3.1.png/     <- Reproduced figure 3.1
 │   ├── Figure_3.2.png/     <- Reproduced figure 3.2
-│   └── Figure_6.png/       <- Reproduced figure 6
+│   ├── Figure_6.png/       <- Reproduced figure 6
+│   └── Table_4_Overall.png/<- Reproduced table 4 (overall results)
 ├── src/                    <- Source code for the package
 │   ├── NowcastingRepl.jl   <- Package module
 │   ├── Figure1.jl          <- Code to generate paper figure 1
 │   ├── Figure3.1.jl        <- Code to generate paper figure 3.1
 │   ├── Figure3.2.jl        <- Code to generate paper figure 3.2
 │   ├── Figure6.jl          <- Code to generate paper figure 6
+│   ├── Table4_Overall.jl   <- Code to generate paper table 4 (Overall results)
 │   └── Functions_try.jl    <- Code that recreates the functions for the estimation of the model
 ├── test/                   <- Folder where the tests are performed
 │   ├── runtests.jl         <- Runs all the test
