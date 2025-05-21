@@ -1,4 +1,4 @@
-using CSV, DataFrames, Dates, Plots, AdvancedMH, Distributions, StatsFuns, Random, LinearAlgebra, Statistics, PrettyTables, CairoMakie
+using CSV, DataFrames, Dates, Plots, AdvancedMH, Distributions, StatsFuns, Random, LinearAlgebra, Statistics
 using Printf
 include("Functions_try.jl")
 
