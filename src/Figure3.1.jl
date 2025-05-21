@@ -11,14 +11,13 @@ start_pos = 1
 Y = Int.(data_us[start_pos:end, :NBER_Recession])
 
 # Extract predictors matrix
-X = Matrix(data_us[start_pos:end, [:PMI_Manuf, :CISS]])
+#X = Matrix(data_us[start_pos:end, [:PMI_Manuf, :CISS]])
+X = hcat(ones(size(data_us[start_pos:end, :PMI_Manuf], 1)), Matrix(data_us[start_pos:end, [:PMI_Manuf, :CISS]]))
 
 
 # Run the Bayesian logistic regression
 pi_median, beta_samples = bayesian_logit(Y, X; n_iter=250000, prior_var=10.0, step_size=0.05)
 
-#println("Posterior median of pi:")
-#println(pi_median)
 
 # Plot the posterior median of pi as percentages
 # Extract the relevant dates
@@ -84,7 +83,7 @@ recession_dates = data_us[!, :Date][data_us[!, :NBER_Recession] .== 1]
 for d in recession_dates
     vline!([d], color = :black, lw = 1, alpha = 0.2, label = "")
 end
-
+nber = Float64.(data_us.NBER_Recession)
 
 mkpath("./Output")
 savefig(plt, "./Output/Figure_3.1.png")
