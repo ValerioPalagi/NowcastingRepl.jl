@@ -1,9 +1,12 @@
 using NowcastingRepl
-using Test, CSV, DataFrames
+using Test, CSV, DataFrames, CSVFiles
 
 logistic(x) = 1 / (1 + exp(-x))
-data_us = CSV.read("./test/Data_US.csv", DataFrame; dateformat="m/d/y H:M")
-data_ea = CSV.read("./test/Data_EA.csv", DataFrame; dateformat="m/d/y H:M")
+
+data_us = DataFrame(load("test/Data_US.csv"))
+data_ea = DataFrame(load("test/Data_EA.csv"))
+#data_us = CSV.read("./test/Data_US.csv", DataFrame; dateformat="m/d/y H:M")
+#data_ea = CSV.read("./test/Data_EA.csv", DataFrame; dateformat="m/d/y H:M")
 
 
 @testset "NowcastingRepl.jl" begin
