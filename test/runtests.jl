@@ -1,5 +1,5 @@
 using NowcastingRepl
-using Test,CSV, DataFrames, Dates, Plots, AdvancedMH, Distributions, StatsFuns, Random, LinearAlgebra, Statistics
+using Test,CSV, DataFrames, Dates, Plots, AdvancedMH, Distributions, StatsFuns, Random, LinearAlgebra
 
 logistic(x) = 1 / (1 + exp(-x))
 
