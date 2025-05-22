@@ -9,5 +9,5 @@ makedocs(
         "Home" => "index.md",
     ],
     repo = "https://github.com/ValerioPalagi/NowcastingRepl.jl",
-    authors = ["Valerio Palagi", "Isotta Valpreda"]
+    authors = "Valerio Palagi, Isotta Valpreda"
 )
