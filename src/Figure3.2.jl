@@ -11,7 +11,7 @@ start_pos = 62
 Y = Int.(data_ea[start_pos:end, :CEPR_Recession])
 
 # Extract predictors matrix
-X = Matrix(data_ea[start_pos:end, [:CISS, :ESI]])
+X = hcat(ones(size(data_ea[start_pos:end, :CISS], 1)), Matrix(data_ea[start_pos:end, [:CISS, :ESI]]))
 
 
 # Run the Bayesian logistic regression
