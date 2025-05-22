@@ -3,7 +3,7 @@
 Documentation for NowcastingRepl.jl
  
 # NowcastingRepl.jl Documentation
-
+ 
 **NowcastingRepl.jl** is a Julia package that replicates the main results from the 2024 paper [_Nowcasting Recession Risk_](https://assets.amazon.science/12/ce/ceca29ba49ecae3b6367041fbf11/nowcasting-recession-risk.pdf) by Domenico Giannone and Francesco Furno.
 
 The original codebase was developed in MATLAB. This project reproduces its core logic in Julia, focusing on replicating the results from **Sections 2.3 and 2.4**, and generating **Figures 1, 3, 6** and **Table 4 (Overall results)** of the paper.
