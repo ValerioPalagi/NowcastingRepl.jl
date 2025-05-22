@@ -31,6 +31,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/github.com/ValerioPalagi/NowcastingRepl.jl",
+    repo="github.com/ValerioPalagi/NowcastingRepl.jl",
     devbranch="master",
 )
