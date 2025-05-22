@@ -1,4 +1,3 @@
-cd("docs")
-using Pkg
-Pkg.activate(".")
-Pkg.add(["Documenter", "NowcastingRepl"])
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+NowcastingRepl = "7cb8100d-3f76-49f0-b91d-514678cac1f5"
