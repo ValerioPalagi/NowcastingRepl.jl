@@ -29,3 +29,8 @@ makedocs(;
         "Home" => "index.md",
     ],
 )
+
+deploydocs(;
+    repo="github.com/github.com/ValerioPalagi/NowcastingRepl.jl",
+    devbranch="master",
+)
