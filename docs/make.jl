@@ -2,14 +2,12 @@ using Documenter
 using NowcastingRepl
 
 makedocs(
-    sitename = "NowcastingRepl",
+    sitename = "NowcastingRepl.jl",
+    modules = [NowcastingRepl],
     format = Documenter.HTML(),
-    modules = [NowcastingRepl]
-)
-
-# Documenter can also automatically deploy documentation to gh-pages.
-# See "Hosting Documentation" and deploydocs() in the Documenter manual
-# for more information.
-deploydocs(
-    repo = "github.com/ValerioPalagi/NowcastingRepl.jl"
+    pages = [
+        "Home" => "index.md",
+    ],
+    repo = "https://github.com/ValerioPalagi/NowcastingRepl.jl",
+    authors = ["Valerio Palagi", "Isotta Valpreda"]
 )
